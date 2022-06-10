@@ -4,6 +4,11 @@ title: Search
 permalink: /search/
 ---
 
+<!---
+<script src="{{ site.baseurl }}/assets/some-script-2.js" type="text/javascript"></script>
+--- >
+
+
 <div id="search-container">
     <input type="text" id="search-input" placeholder="Search through the blog posts...">
     <ul id="results-container"></ul>
