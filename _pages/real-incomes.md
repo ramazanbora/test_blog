@@ -11,6 +11,8 @@ permalink: /real-incomes/
 <canvas id="myChart" style="width:100%;max-width:840px"></canvas>
 
 
+<script src="{{ site.baseurl }}/assets/some-script-4.js" type="text/javascript"></script>
+
 
 <script src="{{ site.baseurl }}/assets/some-script-3.js" type="text/javascript"></script>
 
