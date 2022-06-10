@@ -6,10 +6,14 @@ permalink: /real-incomes/
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<canvas id="myChart" style="width:100%;max-width:1400px"></canvas>
 
 <script src="{{ site.baseurl }}/assets/some-script-2.js" type="text/javascript"></script>
+
+<script src="{{ site.baseurl }}/assets/some-script-3.js" type="text/javascript"></script>
+
 
 
 <div id="search-container">
