@@ -8,7 +8,7 @@ permalink: /real-incomes/
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<canvas id="myChart" style="width:100%;max-width:1400px"></canvas>
+<canvas id="myChart" style="width:100%;max-width:840px"></canvas>
 
 <script src="{{ site.baseurl }}/assets/some-script-2.js" type="text/javascript"></script>
 
