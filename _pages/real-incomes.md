@@ -5,7 +5,7 @@ permalink: /real-incomes/
 ---
 
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 <script src="{{ site.baseurl }}/assets/some-script-2.js" type="text/javascript"></script>
 
