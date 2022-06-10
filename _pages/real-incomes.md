@@ -11,6 +11,10 @@ permalink: /real-incomes/
 <canvas id="myChart" style="width:100%;max-width:840px"></canvas>
 
 <script>
+
+document.write("check point 6")
+
+
 var xValues = [50,60,70,80,90,100,110,120,130,140,150];
 var yValues = [7,8,8,9,9,9,10,11,14,14,15];
 
