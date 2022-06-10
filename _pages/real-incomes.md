@@ -4,8 +4,10 @@ title: Search
 permalink: /real-incomes/
 ---
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
 <script src="{{ site.baseurl }}/assets/some-script-2.js" type="text/javascript"></script>
 
