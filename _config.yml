@@ -51,7 +51,7 @@ google_analytics: UA-43339302-11
 
 
 baseurl: "/test_blog" # the subpath of your site, e.g. /blog
-url: "ramazanbora.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://ramazanbora.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 
