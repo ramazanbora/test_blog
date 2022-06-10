@@ -6,6 +6,13 @@ permalink: /search/
 
 <!---
 <script src="{{ site.baseurl }}/assets/some-script-2.js" type="text/javascript"></script>
+
+<script src="{{ site.baseurl }}/assets/some-script-4.js" type="text/javascript"></script>
+
+
+<script src="{{ site.baseurl }}/assets/some-script-3.js" type="text/javascript"></script>
+
+
 --- >
 
 
