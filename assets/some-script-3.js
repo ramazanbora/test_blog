@@ -1,5 +1,10 @@
+document.write("check point 2")
+
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
+
+document.write("check point 3")
+
 
 // Draw the chart and set the chart values
 function drawChart() {
