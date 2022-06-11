@@ -11,13 +11,6 @@ permalink: /real-incomes/
 {% assign currency_iso = site.data.currency_iso | group_by:"COUNTRY" %}
 
 
-{% comment %}
-{{ country_details[0] }}
-{{ currency_iso[0] }}
-{% endcomment %}
-
-
-
 ## cool tables
 
 
@@ -105,76 +98,6 @@ permalink: /real-incomes/
   </details>
 {% endfor %}
 
-
-
-
-
-<table>
-{% for row in currency_iso %}
-
-  {% if forloop.first %}
-  <tr>
-    {% for pair in row %}
-      <th>{{ pair[0] }}</th>
-    {% endfor %}
-  </tr>
-  {% endif %}
-
-  {% tablerow pair in row %}
-    {{ pair[1] }}
-  {% endtablerow %}
-
-  {% endfor %}
-</table>
-
-{% assign currency_analysis = site.data.currency_anal | where:"CODE_WB",code_working_on  %}
-
-{% assign code_length = currency_analysis | size %}
-
-{% assign groups_code_wb_level = site.data.currency_anal | group_by:"CODE_WB" %}
-
-{% comment %}
-{{ groups_code_wb_level }}
-{% endcomment %}
-{{ groups_code_wb_level[1] }}
-
-{{ groups_code_wb_level[1].items }}
-
-
-## test 2
-
-
-
-
-
-
-
-<table>
-{% for row in exchange_rates %}
-
-  {% tablerow pair in row %}
-    {{ pair[1] }}
-  {% endtablerow %}
-
-{% endfor %}
-</table>
-
-
-{% for row in exchange_rates %}
-  {{row["XR"]}}
-{% endfor %}
-
-
-
-<table>
-{% for row in exchange_rates %}
-
-  {% tablerow pair in row %}
-    {{ pair[1] }}
-  {% endtablerow %}
-
-{% endfor %}
-</table>
 
 
 
