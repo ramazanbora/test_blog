@@ -106,31 +106,7 @@ permalink: /real-incomes/
 {% endfor %}
 
 
-## ayrilin
 
-{{ currency_iso[0] }}
-
-{% for country in currency_iso %}
-  <details {% if forloop.first %} open {% endif %} >
-    <summary>{{ country.name }}</summary>
-    <table>
-      {% for row in country.items %}
-        {% if forloop.first %}
-          <tr>
-            {% for pair in row%}
-              <th>{{ pair[0] }}</th>
-            {% endfor %}
-          </tr>
-        {% endif %}
-
-        {% tablerow pair in row %}
-          {{ pair[1] }}
-        {% endtablerow %}
-
-      {% endfor %}
-    </table>
-  </details>
-{% endfor %}
 
 
 <table>
@@ -171,29 +147,6 @@ permalink: /real-incomes/
 
 
 
-<table>
-{% for row in currency_analysis %}
-
-
-
-  {% if forloop.first %}
-  <tr>
-    {% for pair in row %}
-      <th>{{ pair[0] }}</th>
-    {% endfor %}
-  </tr>
-  {% endif %}
-
-  {% tablerow pair in row %}
-    {{ pair[1] }}
-  {% endtablerow %}
-
-  {% endfor %}
-</table>
-
-
-
-
 
 
 <table>
@@ -223,338 +176,31 @@ permalink: /real-incomes/
 {% endfor %}
 </table>
 
-### something else
-
-{% capture exchange_rates_XR -%}
-  {% for row in exchange_rates -%}
-    {{ row.XR -}}
-    {{ "," -}}
-  {% endfor %}
-{% endcapture %}
-
-{% comment %}
-{% assign exchange_rates_XR = exchange_rates_XR | split: "," %}
-{% endcomment %}
-{% assign exchange_rates_XR = exchange_rates_XR | pop: 1 %}
 
 
-{% capture exchange_rates_YEAR -%}
-  {% for row in exchange_rates -%}
-    {{ row.YEAR -}}
-    {{ "," -}}
-  {% endfor %}
-{% endcapture %}
+## ayrilin
 
-{% comment %}
-{% assign exchange_rates_YEAR = exchange_rates_YEAR | split: "," %}
-{% endcomment %}
-{% assign exchange_rates_YEAR = exchange_rates_YEAR | pop: 1 %}
+{% for country in currency_iso %}
+  <details {% if forloop.first %} open {% endif %} >
+    <summary>{{ country.name }}</summary>
+    <table>
+      {% for row in country.items %}
+        {% if forloop.first %}
+          <tr>
+            {% for pair in row%}
+              <th>{{ pair[0] }}</th>
+            {% endfor %}
+          </tr>
+        {% endif %}
 
+        {% tablerow pair in row %}
+          {{ pair[1] }}
+        {% endtablerow %}
 
-- size of exchange_rates_XR : {{ exchange_rates_XR | size }}
-- size of exchange_rates_YEAR : {{ exchange_rates_YEAR | size }}
-
-
-
-### Some statistics: {{ exchange_rates_YEAR | size  }}
-
-<canvas id="myChart2" style="width:100%;max-width:840px"></canvas>
-
-- Inspect row contents
-
-{% assign row = exchange_rates[0] %}
-{{ row | inspect }}
-
-- create a new table
-
-<table>
-  <tr>
-
-  </tr>
-
-</table>
-
-- create table header
-
-<table>
-  {% for row in exchange_rates %}
-    {% if forloop.first %}
-    <tr>
-      {% for pair in row %}
-        <th>{{ pair[0] }}</th>
       {% endfor %}
-    </tr>
-    {% endif %}
-
-      {% tablerow pair in row %}
-        {{ pair[1] }}
-      {% endtablerow %}
-
-  {% endfor %}
-</table>
-
-
-{% for row in exchange_rates %}
-    {{ row.XR }} {{ row.COUNTRY }}
+    </table>
+  </details>
 {% endfor %}
-
-
-
-
-- {{ exchange_rates_XR[1] }}
-- {{ exchange_rates_XR | first }}
-- {{ exchange_rates_XR | last }}
-- {{ exchange_rates_XR | size }}
-- {{ exchange_rates_XR | last}}
-
-
-
-
-
-
-{% for row in site.data.xr %}
-  {{ row }}
-{% endfor %}
-
-
-
-{% assign row = site.data.code_year_analysis[0] %}
-
-Size of data: {{ site.data.code_year_analysis | size }}
-
-
-{% assign rows = site.data.xr | where:"COUNTRY","Angola"  %}
-
-
-{% assign rows_xr = rows.XR %}
-{{ rows }}
-
-{{ rows_xr }}
-
-### Look at the top row
-
-{% assign row = site.data.code_year_analysis[0] %}
-{{ row | inspect }}
-
-### Look at the second row
-
-{% assign row = site.data.code_year_analysis[1] %}
-{{ row | inspect }}
-
-### Look at the row country and code
-
-{{ row["COUNTRY"] }}
-{{ row["CODE_WB"] }}
-
-### First column structured
-
-{% assign row = site.data.code_year_analysis[0] %}
-{% for pair in row %}
-  {{ pair | inspect }}
-  {{ pair[0] }} {{ pair[1] }}
-{% endfor %}
-
-### Find country exchange rates for Angola? Apparently returns the first row.
-
-{% assign person = site.data.xr | find:"COUNTRY","Angola" %}
-{{ person.XR }}
-
-
-### Create a table for the country exchange rates for Angola
-
-{% assign person = site.data.xr | where:"COUNTRY","Angola" %}
-
-<table>
-  {% for row in person %}
-    {% if forloop.first %}
-    <tr>
-      {% for pair in row %}
-        <th>{{ pair[0] }}</th>
-      {% endfor %}
-    </tr>
-    {% endif %}
-
-    {% tablerow pair in row %}
-      {{ pair[1] }}
-    {% endtablerow %}
-  {% endfor %}
-</table>
-
-
-### For Angola, list the xr rows.
-
-{{ site.data.xr | where:"COUNTRY","Angola" }}
-
-
-{% for badge in site.data.xr -%}
-{% endfor %}
-
-
-{% for badge in site.data.code_year_analysis %}
-  {% if badge.COUNTRY == "Angola" %}
-    {{ badge.CODE_WB }}
-  {% endif %}
-{% endfor %}
-
-
-
-{% for badge in site.data.xr %}
-{% assign person = site.data.code_year_analysis | find:"COUNTRY","Angola" %}
-{{ person.XR }}
-{% endfor %}
-
-{% for badge in site.data.code_year_analysis %}
-  {% if badge.COUNTRY == "Angola" %}
-    {{ badge.CODE_WB }}
-  {% endif %}
-{% endfor %}
-
-
-
-
-<table>
-  {% for row in site.data.code_year_analysis %}
-    {% if forloop.first %}
-    <tr>
-      {% for pair in row %}
-        <th>{{ pair[0] }}</th>
-      {% endfor %}
-    </tr>
-    {% endif %}
-  {% endfor %}
-</table>
-
-
-
-<table>
-  {% for row in site.data.code_year_analysis %}
-    {% if forloop.first %}
-    <tr>
-      {% for pair in row %}
-        <th>{{ pair[0] }}</th>
-      {% endfor %}
-    </tr>
-    {% endif %}
-
-    {% tablerow pair in row %}
-      {{ pair[1] }}
-    {% endtablerow %}
-  {% endfor %}
-</table>
-
-
-
-<script>
-
-document.write("check point 6")
-
-
-var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-var yValues = [7,8,8,9,9,9,10,11,14,14,15];
-
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      fill: false,
-      lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 6, max:16}}],
-    }
-  }
-});
-</script>
-
-
-
-<div id="search-container">
-    <input type="text" id="search-input" placeholder="Search through the blog posts...">
-    <ul id="results-container"></ul>
-</div>
-
-<script src="{{ site.baseurl }}/assets/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-<script>
-    SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    searchResultTemplate: '<div style="text-align: left !important;"><a href="{url}"><h1 style="text-align:left !important;">{title}</h1></a><span style="text-align:left !important;">{date}</span></div>',
-    json: '{{ site.baseurl }}/search.json'
-    });
-</script>
-
-
-<canvas id="myChart" style="width:100%;max-width:840px"></canvas>
-
-
-<script>
-
-document.write("check point 6")
-
-
-var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-var yValues = [7,8,8,9,9,9,10,11,14,14,15];
-
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      fill: false,
-      lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 6, max:16}}],
-    }
-  }
-});
-</script>
-
-
-
-<script>
-
-document.write("check point 6")
-
-
-var xValues = [{{ exchange_rates_YEAR }}];
-var yValues = [{{ exchange_rates_XR }}];
-
-new Chart("myChart2", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      fill: false,
-      lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 0, max:400},}],
-    }
-  }
-});
-</script>
-
 
 
 
