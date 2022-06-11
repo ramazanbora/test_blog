@@ -13,15 +13,13 @@ permalink: /real-incomes/
 
 ## cool tables
 
-
-
 {% for country in country_details %}
   {% assign country_iso = currency_iso | find: "name", country.name  %}
 
   <details {% if forloop.first %} open {% endif %} >
     <summary>{{ country.name }}</summary>
 
-    - {{ country.name }} Historical Currencies
+    <h3> {{ country.name }} Historical Currencies </h3>
 
       <table>
         {% for row in country_iso.items %}
@@ -40,7 +38,9 @@ permalink: /real-incomes/
         {% endfor %}
       </table>
 
-      - {{ country.name }} Exchange Rate Progression
+<hr>
+
+      <h3> {{ country.name }} Exchange Rate Progression </h3>
 
       {% capture exchange_rates_XR -%}
         {% for row in country.items -%}
@@ -65,9 +65,9 @@ permalink: /real-incomes/
         createChart("myChart_{{ country.name }}_XR",[{{ exchange_rates_YEAR }}],[{{ exchange_rates_XR }}])
       </script>
 
+<hr>
 
-
-          ## {{ country.name }} Population Progression
+      <h3> {{ country.name }} Population Progression </h3>
 
             {% capture pop -%}
               {% for row in country.items -%}
@@ -99,7 +99,7 @@ permalink: /real-incomes/
 {% endfor %}
 
 
-
+{% comment %}
 
 ## ayrilin
 
@@ -126,32 +126,6 @@ permalink: /real-incomes/
 {% endfor %}
 
 
-
+{% endcomment %}
 
 <script>
-
-function createChart(chartName,xValues,yValues){
-
-document.write("check point 6")
-
-new Chart(chartName, {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      fill: false,
-      lineTension: 0,
-      backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 0, max:400},}],
-    }
-  }
-});
-}
-</script>

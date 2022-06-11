@@ -49,8 +49,9 @@ google_analytics:
 # Your website URL (e.g. http://amitmerchant1990.github.io or http://www.amitmerchant.com)
 # Used for Sitemap.xml and your RSS feed
 
-baseurl: "/test_blog" # the subpath of your site, e.g. /blog
-url: "https://ramazanbora.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+baseurl: "/reverie" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 
