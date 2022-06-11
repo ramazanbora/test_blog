@@ -1,4 +1,3 @@
-src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"
 
 document.write("JavaScript is a simple language for javatpoint learners")
 
