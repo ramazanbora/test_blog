@@ -7,9 +7,6 @@ permalink: /real-incomes/
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="{{ site.baseurl }}/assets/some-script.js" type="text/javascript"></script>
 
-{% assign code_working_on = "AGO" %}
-{% assign country_working_on = "Angola" %}
-
 {% assign country_details = site.data.country_details | group_by:"COUNTRY" %}
 {% assign currency_iso = site.data.currency_iso | group_by:"COUNTRY" %}
 
