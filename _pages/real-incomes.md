@@ -17,6 +17,25 @@ permalink: /real-incomes/
   {% assign country_iso = currency_iso | find: "name", country.name  %}
   {{ country.name }}
 
+
+  <table>
+    {% for row in country_iso.items %}
+      {% if forloop.first %}
+        <tr>
+          {% for pair in row%}
+            <th>{{ pair[0] }}</th>
+          {% endfor %}
+        </tr>
+      {% endif %}
+
+      {% tablerow pair in row %}
+        {{ pair[1] }}
+      {% endtablerow %}
+
+    {% endfor %}
+  </table>
+
+
   <details {% if forloop.first %} open {% endif %} >
     <summary>{{ country.name }}</summary>
 
