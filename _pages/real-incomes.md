@@ -19,7 +19,7 @@ permalink: /real-incomes/
 
 
   <table>
-    {% for row in country.items %}
+    {% for row in country_iso.items %}
       {% if forloop.first %}
         <tr>
           {% for pair in row%}
