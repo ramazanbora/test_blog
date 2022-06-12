@@ -19,7 +19,7 @@ permalink: /real-incomes/
 
 
   <table>
-    {% for row in country_iso.items %}
+    {% for row in country.items %}
       {% if forloop.first %}
         <tr>
           {% for pair in row%}
@@ -34,7 +34,6 @@ permalink: /real-incomes/
 
     {% endfor %}
   </table>
-
 
   <details {% if forloop.first %} open {% endif %} >
     <summary>{{ country.name }}</summary>
