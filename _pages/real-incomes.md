@@ -11,30 +11,47 @@ permalink: /real-incomes/
 {% assign currency_iso = site.data.currency_iso | group_by:"COUNTRY" %}
 
 
+{% comment %}
+  {% for country_iso in currency_iso %}
+
+  {{ country_iso }}
+
+      {% if country_iso.name == country.name %}
+
+        <table>
+          {% for row in country_iso.items %}
+            {% if forloop.first %}
+              <tr>
+                {% for pair in row%}
+                  <th>{{ pair[0] }}</th>
+                {% endfor %}
+              </tr>
+            {% endif %}
+
+            {% tablerow pair in row %}
+              {{ pair[1] }}
+            {% endtablerow %}
+
+          {% endfor %}
+        </table>
+
+      {% endif %}
+
+  {% endfor %}
+
+{% endcomment %}
+
+
 ## cool tables
 
 {% for country in country_details %}
-  {% assign country_iso = currency_iso | find: "name" , country.name %}
-  {{ country_iso.name }} {{ country_iso.size }}
-  {{ country_iso }}
- 
 
-  <table>
-    {% for row in country_iso.items %}
-      {% if forloop.first %}
-        <tr>
-          {% for pair in row%}
-            <th>{{ pair[0] }}</th>
-          {% endfor %}
-        </tr>
-      {% endif %}
 
-      {% tablerow pair in row %}
-        {{ pair[1] }}
-      {% endtablerow %}
 
-    {% endfor %}
-  </table>
+  {% assign country_iso = currency_iso | find: "name", country.name %}
+
+  {{ country_iso}}
+
 
   <details {% if forloop.first %} open {% endif %} >
     <summary>{{ country.name }}</summary>

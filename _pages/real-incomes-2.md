@@ -18,6 +18,8 @@ permalink: /real-incomes-2/
   {{ country_iso.name }} {{ country_iso.size }}
   {{ country_iso }}
 
+  
+
 
   <table>
     {% for row in country_iso.items %}
