@@ -17,7 +17,7 @@ permalink: /real-incomes/
   {% assign country_iso = currency_iso | find: "name" , country.name %}
   {{ country_iso.name }} {{ country_iso.size }}
   {{ country_iso }}
- 
+
 
   <table>
     {% for row in country_iso.items %}
