@@ -15,6 +15,7 @@ permalink: /real-incomes/
 
 {% for country in country_details %}
   {% assign country_iso = currency_iso | find: "name", country.name  %}
+  {{ country.name }}
 
   <details {% if forloop.first %} open {% endif %} >
     <summary>{{ country.name }}</summary>
